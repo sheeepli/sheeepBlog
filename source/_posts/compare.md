@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2019-12-25 16:08:02
- * @LastEditTime: 2019-12-30 17:18:39
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: \sheeep-37\source\_posts\compare.md
- -->
 ---
 title: 比较两个数据是否相同
 date: 2019-12-25 16:08:02

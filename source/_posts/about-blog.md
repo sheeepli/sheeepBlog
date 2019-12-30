@@ -87,3 +87,17 @@ type: "categories"
     - tag1
     - tag2
     ```
+
+## 关于提交 github
+
+我记得以前提交 github 只需要配置好 _config.yml 就可以了。
+
+现在还需要安装一个模块
+
+```shell
+npm install hexo-deployer-git --save
+```
+
+使用 `hexo generator` 生成文件
+
+然后使用 `hexo deploy -m 'commit message'` 提交
