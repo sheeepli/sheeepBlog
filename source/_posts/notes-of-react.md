@@ -406,7 +406,13 @@ class NameForm extends React.Component {
 
 ## Hooks
 
+因为在项目开发过程中，组件之间复用状态逻辑变得很难，组件的复杂程度使得组件变得难以理解，各种各样的原因便有了 Hook 的诞生。
+
+> Hook 不能在 class 组件中使用 —— 这使得你不使用 class 也能使用 React。
+
 hooks 可以让你在非 class 组件中使用 state。它包括两个模块 `useState` 和 `useEffect`。
+
+你看吧，我又以偏概全了，明明还有很多，甚至还可以自定义 Hook。
 
 ### state hooks
 
@@ -426,7 +432,7 @@ function Child() {
 }
 ```
 
-其中 useState 返回两个数据，第一个是初始化数据，第二个是更新数据的方法。如上面例子中的 count 和 setCount。setCount 类似于类组件中的 this.setState 方法，但是它不会合并现有数据。也就是说，在更新函数中传入同一个对象是无法更新的。
+其中 useState 返回两个数据（一个数组？？？），第一个是初始化数据，第二个是更新数据的方法。如上面例子中的 count 和 setCount。setCount 类似于类组件中的 this.setState 方法，但是它不会合并现有数据。也就是说，在更新函数中传入同一个对象是无法更新的。
 
 ```js
 function Child() {
@@ -456,6 +462,48 @@ function Child() {
 ```
 
 ### effect hooks
+
+useEffect 类似于类组件的 componentDidMount, componentDidUpdata, componentWillUnmount，只不过是合成了一个函数。
+
+useEffect 允许返回一个函数，用于在**销毁组件**时运行，此时可以做取消订阅等操作。
+
+```js
+function Effect(props) {
+  useEffect(() => {
+    console.log('现在组件已经加载好了')
+    return () => {
+      alert('我只会在组件销毁时执行哦')
+    };
+  })
+  return (
+    <div>{props.source}</div>
+  )
+}
+```
+
+当然，useEffect 可以用来获取数据，可以用来修改 useState 的值等等常规操作。
+
+useEffect 允许添加第二个参数（数组），用来判断是否需要更新。
+
+```js
+function Effect(props) {
+  useEffect(() => {
+    console.log('现在组件已经加载好了')
+    return () => {
+      alert('我只会在组件销毁时执行哦')
+    };
+  }, [props.count])
+  return (
+    <div>{props.source} , {props.count}</div>
+  )
+}
+```
+
+修改一下上面代码，添加一个 props.count，这里的数组只有要给元素，所以当且仅当 props.count 改变时会进行更新。
+
+> 如果想执行只运行一次的 effect（仅在组件挂载和卸载时执行），可以传递一个空数组（[]）作为第二个参数。这就告诉 React 你的 effect 不依赖于 props 或 state 中的任何值，所以它永远都不需要重复执行。这并不属于特殊情况 —— 它依然遵循依赖数组的工作方式。
+
+**useState 和 useEffect 都允许多次使用**这是与类组件不一样的地方。
 
 ## 代码分割
 
