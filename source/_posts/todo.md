@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2019-12-30 19:16:38
- * @LastEditTime: 2019-12-31 11:25:24
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: \sheeep-37\source\_posts\todo.md
- -->
 ---
 tile: todo
 date: 2019-12-30 19:16:38
@@ -19,3 +11,7 @@ tags:
 * [ ] **2019.12.30**
   * [X] hooks useEffect
   * [ ] 高阶组件 HOC （异步加载模块）
+* [ ] **2019.12.31**
+  * [ ] withRouter
+* [ ] **2020.01.02**
+  * [ ] ref

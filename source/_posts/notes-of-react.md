@@ -529,6 +529,10 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 React.lazy 接受一个函数，这个函数需要动态调用 import()。它必须返回一个 Promise，该 Promise 需要 resolve 一个 defalut export 的 React 组件。
 
+## 高阶组件
+
+> 高阶组件是参数为组件，返回值为新组件的函数
+
 ## 记录需要多看的地方
 
 * [context](https://reactjs.org/docs/context.html#dynamic-context)
