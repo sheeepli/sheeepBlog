@@ -132,11 +132,53 @@ $(document).ready(function() {
 
 大概其他方法也是同样的，所以就告辞，`(●'◡'●)`。
 
+## 关于 parameters
+
+上面说到 previewWithData(data) 这个功能，这里就必须要来讲一讲与 data 有关的 parameters 的属性问题。
+
+我们在添加 parameters 时，允许我们给参数添加类型，其中包括文本、数字、布尔值、日期、图片、列表、简单列表、集合、总和、平均值。
+
+假设我们现有有这么一个报表，它包含了各种参数 text, number, boolean, date, image, list, simpleList, collection, sum, average。
+
+我们需要传入的 data 要与之相应类型才行，且 data 必须是对象。
+
+```js
+const data = {
+  text: 'asdfgh',
+  number: 123456,
+  boolean: true,
+  date: new Date(),
+  image: ???,
+  list: [],
+  simpleList: [],
+  collection: {},
+  sum: ???,
+  average: ???
+}: {
+  text: String,
+  number: Number,
+  boolean: Boolean, // 输入任意值都允许打印？？？
+  date: Date
+  image: ???, // 未知输入
+  list: Array,
+  simpleList: Array,
+  collection: Object,
+  sum: ???, // 未知，表达式未知
+  average: ???  // 未知，表达式未知
+}
+```
+
 ## 注意事项
 
 1. 原插件不允许添加中文。需要后台配合修改。
 2. 配置对象不传的话会报错的，所以至少要传一个空对象。
 3. 在 `$('#reportbro').reportBro('load', report)` 中 report 有个硬性要求，它不能为 null，并且需要含有三个属性，`{styles: [], version: 3, parameters: [], docElements: [],}` 其中 version 默认为 3，所以可以不用。另外三个属性在程序中需要遍历，所以必须是个数组。
+
+## 关于一个莫名其妙的问题
+
+parameterType 的值为一个只有一个元素的数组，造成原因不明。
+
+处理方法：三元判断 parameterType 的值，如果是数组，值为数组的第一个元素，如果值不是数组，值就是值。
 
 ## In React
 

@@ -1,7 +1,7 @@
 ---
 title: 19年第52周
 date: 2019-12-24 19:53:02
-tags:
+categories: "周记"
 ---
 
 ## bilibili
