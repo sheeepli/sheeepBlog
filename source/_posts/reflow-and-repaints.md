@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-01-06 20:55:27
+ * @LastEditTime : 2020-01-07 08:49:19
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \sheeep-37\source\_posts\reflow-and-repaints.md
+ -->
 ---
 title: 回流与重绘
 date: 2020-01-06 19:05:08
@@ -45,7 +53,7 @@ box.background = '#000'; // 重绘
 box.color = 'blue'; // 重绘
 ```
 
-**不可见的元素不影响重排的重绘。**
+**不可见的元素不影响重排和重绘。**
 
 ## 对于性能的影响
 
