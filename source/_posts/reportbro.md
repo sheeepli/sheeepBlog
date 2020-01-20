@@ -168,6 +168,49 @@ const data = {
 }
 ```
 
+reportbro 是这样返回 list 的：
+
+```js
+Object {
+  docElements: [],
+  styles: [],
+  version: 3,
+  parameters: [
+    {
+      arrayItemType: String 'string',
+      name: String 'list',
+      chileren: Array [
+        {
+          arrayItemType: String 'string',
+          eval: Boolean false,
+          expression: String '',
+          id: Number 2,
+          name: String 'row_number'
+          nullable: Boolean false,
+          pattern: String '',
+          showOnlyNameType: Boolean true,
+          testData: String '',
+          type: String 'number'
+        },
+        /* more */
+      ],
+      eval: Boolean false,
+      expression: String '',
+      id: Number 1,
+      nullable: Boolean false,
+      pattern: String '',
+      showOnlyNameType: Boolean false,
+      testData: String '',
+      type: String "array",
+    }
+  ]
+}
+```
+
+其实这个 list 就是我们表格的数据，它里面的每一行就是一个 children 数据。
+
+怎么说呢，要搞出一个适合 array 的内容真的有点难，情况有点多。
+
 ## 关于中文的支持
 
 在[官方示例](https://www.reportbro.com/demos/certificate)中有个字体是允许使用中文的，我也不知道为什么我的这个不会提示我输入中文格式不对，反正官方的是会的。
@@ -179,6 +222,7 @@ const data = {
 1. 原插件不允许添加中文。需要后台配合修改。
 2. 配置对象不传的话会报错的，所以至少要传一个空对象。
 3. 在 `$('#reportbro').reportBro('load', report)` 中 report 有个硬性要求，它不能为 null，并且需要含有三个属性，`{styles: [], version: 3, parameters: [], docElements: [],}` 其中 version 默认为 3，所以可以不用。另外三个属性在程序中需要遍历，所以必须是个数组。
+4. 在 react 项目中，不知道是我的 state 问题还是什么问题，通过下拉选择的都会 push 进一个数组，导致传到服务器无法解析，或者还没传到服务器就报错，类型不对的错误。
 
 ## 关于一个莫名其妙的问题
 

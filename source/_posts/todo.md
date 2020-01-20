@@ -15,3 +15,10 @@ tags:
   * [ ] withRouter
 * [ ] **2020.01.02**
   * [ ] ref
+* [ ] **2020.01.13**
+  * [ ] react static
+  * [ ] ES6 static
+* [ ] **2020.01.20**
+  * [ ] class
+  * [ ] lifecycle
+  * [ ] sheetjs-xlsx

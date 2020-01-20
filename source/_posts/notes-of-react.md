@@ -111,7 +111,7 @@ this.setState({
 
 > 传递一个函数可以让你在函数内访问到当前的 state 的值。因为 setState 的调用是分批的，所以你可以链式地进行更新，并确保它们是一个建立在另一个之上的，这样才不会发生冲突。
 
-> 所有 React 组件都必须像纯函数一样保护它们的 props 不被更改。
+所有 React 组件都必须像纯函数一样保护它们的 props 不被更改。
 
 如果想要修改某些值，以响应用户输入或网络响应，请使用 state。
 
@@ -202,6 +202,8 @@ this.setState({
 * componentDidCatch(error, info)
 
   此生命周期在后代组件抛出错误后被调用。
+
+* componentWillReceiveProps(nextProps)
 
 ### 表单
 
@@ -352,21 +354,32 @@ const MyContext = React.createContext(defaultValue);
 当组件向上查找没有找到 Provider 时，默认值生效。
 
 ```js
-render() {
-  return (
-    // 无论这里有没有值，默认值都不会生效，即使填写了 undefined
-    <MyContext.provider>
-      <Button />
-    </MyContext.provider>
-  )
-}
 
-// 当 MyContent.provider 不存在时，默认值生效
-render() {
-  return (
-    <Button />
-  )
-}
+const { Provider, Consumer } = React.createContext('defaultValue')
+
+const ProviderComp = (props) => (
+  <Provider value={123}>
+    {props.children}
+  </Provider>
+)
+
+const ConsumerComp = () => (
+  <Consumer>
+    {(value) => <p>{value}</p>}
+  </Consumer>
+)
+
+// 不嵌套在 ProviderComp 中，defaultValue 生效
+ReactDOM.render(
+  <ConsumerComp/>,
+  document.getElementById('root')
+);
+
+// 嵌套在 ProviderComp 中，defaultValue 不生效
+ReactDOM.render(
+  <ProviderComp><ConsumerComp/></ProviderComp>,
+  document.getElementById('root')
+);
 ```
 
 ### 受控组件 & 非受控组件
