@@ -1,8 +1,8 @@
 ---
 title: vue 和 react 的差异
 date: 2019-12-09 15:13:48
-tags: [vue, react]
-categories: "前端"
+tags: [前端, vue, react]
+categories: 编程
 ---
 
 就学者而言，总会比较好坏，慢慢总结 vue 和 react 的差异。

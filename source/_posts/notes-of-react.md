@@ -1,8 +1,8 @@
 ---
 title: 初学react遇到的不理解的东西
 date: 2019-11-28 13:35:56
-tags: "react"
-categories: "前端"
+tags: [前端, react]
+categories: 编程
 ---
 
 闻道有先后，术业有专攻，如是而已。

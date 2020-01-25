@@ -1,8 +1,8 @@
 ---
 title: 类
 date: 2020-01-14 18:44:56
-tags: js
-categories: 前端
+tags: 基础
+categories: 编程
 ---
 
 原本是想写 react static 这方面的内容的，但是又想到 static 实际上是 ES6 或者说是类的一个属性，所以改成写类比较合适一点。

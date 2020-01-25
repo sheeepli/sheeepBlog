@@ -1,7 +1,8 @@
 ---
 title: 报表插件 reportBro 的使用
 date: 2019-12-27 20:34:22
-tags: [插件, react]
+tags: [前端, 插件, react]
+categories: 编程
 ---
 
 这两天需要做一个可以高度自定义的报表，项目不紧迫，但是考虑到完善性方面，决定使用 reportBro 插件，高度自由，没有框框架架的约束。

@@ -1,8 +1,8 @@
 ---
 title: 回流与重绘
 date: 2020-01-06 19:05:08
-tags: [js, 优化]
-categories: "前端"
+tags: [前端, js, 优化]
+categories: 编程
 ---
 
 今天在写打印弹出框的时候的卡顿引起的想法。

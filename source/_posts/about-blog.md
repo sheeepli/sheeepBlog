@@ -2,7 +2,7 @@
 title: About Blog
 date: 2019-11-27 15:38:46
 tags: hexo
-categories: "其他"
+categories: 其他
 ---
 
 这里会写一些关于我使用 next 遇到的问题及解决方案，也许我的不是解决方案，只是我能想到的妥协办法。

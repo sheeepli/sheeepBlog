@@ -1,8 +1,8 @@
 ---
 title: 浅谈生命周期
 date: 2020-01-20 11:25:56
-tags: "react"
-categories: "前端"
+tags: [前端, react]
+categories: 编程
 ---
 
 浅谈？？？
