@@ -168,3 +168,94 @@ componentDidMount 同样适合订阅东西，但需要在 componentWillUnmount �
 官网还提到一个问题（pattern），在调用 componentDidMount 时立即执行 setState，页面会渲染两次，但是这两次渲染会发生在屏幕更新之前，也就是用户看不到渲染两次的效果。
 
 ## componentWillUpdate
+
+该生命周期在未来版本写作 UNSAVE_componentWillUpdate。
+
+从文字上看，我们能够知道它是在组件更新之前执行的，我们能够在组件更新前执行这个钩子去执行一些操作。
+
+还有啊，这个钩子不会在创建组件的时候执行。
+
+还有一件事，当 shouldComponentUpdate 返回 false 时，该钩子不执行。
+
+## shouldComponentUpdate
+
+提到 componentWillUpdate 就不能提到 shouldComponentUpdate 这个钩子了。当然，还有一个 componentDidUpdate 钩子，等会再说。
+
+shouldComponentUpdate **必须**返回一个 Boolean，当返回 true 时执行 componentWillUpdate 以及  componentDidUpdate，反之则不执行。
+
+```js
+shouldComponentUpdate(props, state) {
+  return Math.floor(Math.random()*10) %  2 === 0
+}
+
+componentWillUpdate() {
+  console.log(`It's componentWillUpdate`)
+}
+
+componentDidUpdate() {
+  console.log(`It's componentDidUpdate`)
+}
+```
+
+输出结果有两种情况：
+
+1. 不执行 componentWillUpdate 和 componentDidUpdate
+2. 输出 It's componentWillUpdate 之后输出 It's componentDidUpdate
+
+## componentDidUpdate
+
+上面我们也提到了这个钩子，它是在组件更新完毕之后执行的。同样，我们初始化组件时它并不会执行。
+
+切记！在 componentDidUpdate 不要执行 setState，如果非要执行，则需要一个结束条件，否则无限循环直至报错。
+
+```js
+componentDidUpdate() {
+  if (this.state.count < 10) {
+    this.setState((state) => ({
+      count: state.count + 1
+    }))
+  }
+}
+```
+
+同样，该钩子在 shouldComponentUpdate 返回 false 时不执行。
+
+## render
+
+render 生命周期是每个类组件必须拥有的一个钩子，该生命周期返回一个最外层只有一个标签的 jsx 元素。
+
+在返回的 jsx 中，如果我们需要加入变量或者函数进去，可以使用 `{ }` 包住。但是有几个需要注意的地方：
+
+1. 当包裹的内容是 Booleans 或 null 时
+
+    ```js
+    render() {
+      return (
+        <>
+        true: {true}
+        false: {false}
+        null: {null}
+        </>
+      )
+    }
+    ```
+
+    并不会渲染除任何内容。
+
+2. 想要渲染组件时
+
+    `{ }` 允许我们直接返回一整个数组的 jsx 元素，react 会把这个数组渲染进去组件中。
+
+    ```js
+    render() {
+      <ul>
+        {
+          [1, 2, 3, 4].map((item) => <li>{item}</li>)
+        }
+      </ul>
+    }
+    ```
+
+    上面代码所示，我们就可以渲染除一个列表的 li 标签。但是呢会报错的说，毕竟列表中的每个元素都必须要有自己的 key 值，如果没有，react 会根据下标给每个元素添加 key。具体内容可去看 react 官网的列表。
+
+
