@@ -551,6 +551,20 @@ React.lazy 接受一个函数，这个函数需要动态调用 import()。它必
 * [context](https://reactjs.org/docs/context.html#dynamic-context)
 * [传递组件给函数](https://reactjs.org/docs/faq-functions.html)
 
+## redux dva
+
+redux 是 react 的一个状态管理器。
+
+dva 首先是一个基于 redux 和 redux-saga 的数据流方案，然后为了简化开发体验，dva 还额外内置了 react-router 和 fetch，所以也可以理解为一个轻量级的应用框架。
+
+每一个 model 都有一个 namespace（命名空间）以防止全局污染。
+
+effects 是一个对象，里面的方法供外部调用以执行。主要用来调用（描述）reducers 中的方法
+
+reducers 也是一个对象，同 effects 相似，但是它的功能主要是修改全局的状态。
+
+如果我们在 model 外部调用 model 的 reducers 方法，我们需要添加命名空间，而在 model 中调用当前 model 的方法，则可以不用添加命名空间。
+
 ## 提示
 
 ### 不要过度思考

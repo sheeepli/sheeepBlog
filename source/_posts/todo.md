@@ -20,11 +20,17 @@ categories: 其他
   * [ ] react static
   * [ ] ES6 static
 * [ ] **2020.01.20**
-  * [ ] class
+  * [ ] 完成 class 文件内容
   * [ ] lifecycle
   * [ ] sheetjs-xlsx
 * [ ] **2020.01.29**
   * [ ] 系统学习
+* [ ] **2020.02.17**
+  * [ ] 学习 promise
+* [ ] **2020.02.28**
+  * [ ] body-parser
+* [ ] **2020.03.01**
+  * [ ] ES6 promise & await & async
 
 ## 系统学习
 
