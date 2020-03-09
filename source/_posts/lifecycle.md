@@ -133,6 +133,78 @@ UNSAFE_componentWillReceiveProps(nextProps) {
 
 这里仅仅只是转变数值，如果换成请求数据，如果从父组件传入数据我们要做的事情就会变得很多，而且还可以降低耦合。
 
+但是我们请求传递的数据肯定不是纯数字或者基础数据类型，而是对象或者数组，那我们就会遇到这样一个问题：**在 componentWillReceiveProps 中，nextProps 和 this.props 相同**。这里就是因为引用的问题，解决方法就是浅拷贝。
+
+直接用控制台来看吧
+
+![控制台](will-receive-props-04.jpg)
+
+就像这样。对于基础数据类型是不会出现引用问题的，但是对于对象、数组就会。
+
+还是使用我们之前的代码：
+
+```js
+class Father extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+      counts: []
+    }
+  }
+  add = () => {
+    const {counts} = this.state
+    counts.push(Math.floor(Math.random() * 10))
+    this.setState((state) => ({
+      counts
+    }))
+  }
+  render (){
+    return (
+      <div>
+        <input type="button" value="click me" onClick={this.add} />
+        <Children counts={this.state.counts}/>
+      </div>
+    )
+  }
+}
+
+class Children extends React.Component{
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+    console.log(this.props)
+  }
+  render(){
+    return (
+      <div></div>
+    )
+  }
+}
+```
+
+这里我们每一次点击按钮都会打印出 nextProps 和 this.props。
+
+![控制台](will-receive-props-05.jpg)
+
+会发现我们的 counts 每一组都是一样的，这就是因为对象的引用相同。要解决这个问题也很简单，我们只需要浅拷贝一下就可以了，也就是用解构传参。
+
+```js
+// Father
+render() {
+  return (
+    <div>
+      <input type="button" value="click me" onClick={this.add} />
+      <Children counts={[...this.state.counts]}/>
+    </div>
+  )
+}
+```
+
+运行结果：
+
+![结果](will-receive-props-06.jpg)
+
+这样我们就可以避免前后两个 props.counts 的值一样了。
+
 其实在我写项目之前，我也没有去注意过这个钩子，仅仅把它当成过时的不常用钩子看待。在写项目的时候，需要像上面一样由父组件点击，子组件发起请求，最开始一直在 componentDidMount 和 componentDidUpdate 上面徘徊，直到我看到了这个钩子。
 
 ## componentWillMount
