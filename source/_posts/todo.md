@@ -31,6 +31,9 @@ categories: 其他
   * [ ] body-parser
 * [ ] **2020.03.01**
   * [ ] ES6 promise & await & async
+* [ ] **2020.03.19**
+  * [ ] js 运行机制
+  * [X] 防抖和节流（debounce-and-throttle）
 
 ## 系统学习
 
