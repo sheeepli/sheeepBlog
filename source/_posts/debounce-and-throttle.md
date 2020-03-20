@@ -112,5 +112,3 @@ function throttle(fn, wait) {
   }
 }
 ```
-
-就酱，告辞。
