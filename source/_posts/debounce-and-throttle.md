@@ -43,7 +43,8 @@ categories: 编程
         function submit() {
             console.log(2)
         }
-        document.getElementById('btn').onclick = debounce(submit, 1000) // 注意这里是直接调用函数，并不是写 function(){ debounce(submit, 1000) }
+        document.getElementById('btn').onclick = debounce(submit, 1000)
+        // 注意这里是直接调用函数，并不是写 function(){ debounce(submit, 1000) }
     </script>
 </body>
 ```
