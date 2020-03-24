@@ -1,7 +1,7 @@
 ---
 title: Promise 基础
 date: 2020-03-20 15:20:59
-tags: 基础
+tags: [js, 基础]
 categories: 编程
 ---
 

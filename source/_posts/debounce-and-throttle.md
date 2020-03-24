@@ -1,7 +1,7 @@
 ---
 title: 防抖（debounce）和节流（throttle）
 date: 2020-03-19 23:16:48
-tags: 基础
+tags: [js, 基础]
 categories: 编程
 ---
 

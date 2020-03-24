@@ -1,7 +1,7 @@
 ---
 title: 比较两个数据是否相同
 date: 2019-12-25 16:08:02
-tags: 基础
+tags: [js, 基础]
 categories: 编程
 ---
 
