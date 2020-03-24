@@ -36,6 +36,8 @@ categories: 其他
 * [ ] **2020.03.19**
   * [ ] js 运行机制
   * [X] 防抖和节流（debounce-and-throttle）
+* [ ] **2020.03.23**
+  * [ ] 基于 umi 搭建 antd 项目
 
 ## 系统学习
 
