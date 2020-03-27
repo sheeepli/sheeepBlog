@@ -32,7 +32,7 @@ categories: 其他
 * [ ] **2020.02.28**
   * [ ] body-parser
 * [ ] **2020.03.01**
-  * [ ] ES6 promise & await & async
+  * [X] ES6 promise & await & async（promise）
 * [ ] **2020.03.19**
   * [ ] js 运行机制
   * [X] 防抖和节流（debounce-and-throttle）

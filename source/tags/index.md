@@ -5,9 +5,14 @@ type: "tags"
 comments: false
 ---
 
-现有标签
+现有标签，只记录关于编程的标签
 
-* hexo
 * js
 * react
 * vue
+* hexo
+* 基础
+* 后台
+* 前端
+* 插件
+* 书籍

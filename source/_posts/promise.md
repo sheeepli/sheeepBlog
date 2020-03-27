@@ -215,6 +215,45 @@ console.log(4)
 // -> 1
 ```
 
+## async & await
+
+这里简单介绍一下 async 和 await。他们就是语法糖功能，可以使用生成器实现。
+
+我们可以参考一下 MDN 官网对
+[async](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/async_function) 和
+[await](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await) 的解释以及作用。
+
+简单来说 saync 允许声明一个函数为一个包含异步操作的函数。
+await 操作符用于等待一个Promise 对象。它`只能`在异步函数 async function 中使用。
+
+await 后面一般接 promise 对象或者表达式，且 await 返回的是这个 promise 对象的执行结果。
+
+那我们的基本用法大概就是这样了
+
+```js
+function p1() {
+  return new Promise(resolve => {
+    if (Math.floor(Math.random()*10)) {
+      resolve('2')
+    }
+  })
+}
+function p2(res1) {
+  return new Promise(resolve => {
+    if (Math.floor(Math.random()*10)) {
+      resolve(res1 + 3)
+    }
+  })
+}
+async function fn() {
+  const res1 = await p1() // 返回 p1 的执行结果
+  const res2 = await p2(res1) // 将 p1 的值（res1）作为参数传入 p2，并返回执行结果
+  console.log(res2)
+}
+
+fn()
+```
+
 ## 参考
 
 [Promise - 阮一峰](https://javascript.ruanyifeng.com/advanced/promise.html)
