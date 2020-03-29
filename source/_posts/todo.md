@@ -38,6 +38,8 @@ categories: 其他
   * [X] 防抖和节流（debounce-and-throttle）
 * [ ] **2020.03.23**
   * [ ] 基于 umi 搭建 antd 项目
+* [ ] **2020.03.29**
+  * [ ] 关于 babel 打包优化，减小包体积（可以通过 babel-plugin-import 或者其他的工具实现，代码官网查）
 
 ## 系统学习
 

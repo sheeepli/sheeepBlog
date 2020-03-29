@@ -872,3 +872,4 @@ exports.Promise = Promise
 ## 参考
 
 [Promise 教程](https://www.bilibili.com/video/BV1MJ41197Eu)
+[Promise/A+ 规范](https://www.ituring.com.cn/article/66566)
