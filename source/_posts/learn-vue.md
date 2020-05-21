@@ -196,19 +196,56 @@ router 提供了修改路由的方法，例如 push、replace 等
 
 * 全局混入
 
-```js
-new Vue({
-  mixins: []
-})
+  ```js
+  new Vue({
+    mixins: []
+  })
+  ```
 
 * 局部混入
 
+  ```js
+  export default {
+    name: '',
+    mixins: []
+  }
+  ```
+
+## vue-cli
+
+vue-cli 脚手架用于快速搭建基础的模块。
+
+```shell
+vue create project
+```
+
+当我们输入这行指令之后，允许我们去选择所需要的模块等内容，然后根据这些内容从指定的 github 仓库下载代码。
+
+讲 vue-cli 主要讲的应该是他的 webpack 配置。
+
+为什么要配置？还不是为了减少页面初始化的时间，防止首屏加载时间太长，以及拆包啊，代码加密啊，控制台打印啊等一系列东西。
+
+默认使用 vue-cli 搭建的项目是没有 vue.config.js 这个文件的，所以需要新建一个在根目录。
+
+众所周知，webpack 是基于 node 的，所以我们可以在配置文件中去使用 node 的语法。
+
 ```js
-export default {
-  name: '',
-  mixins: []
+module.exports = {
+
 }
 ```
+
+我们必须要将模块导出，这是语法的规定啊。
+
+vue-cli 还内置了一个 add 指令，允许我们直接去加载一些框架，比如 element-ui
+
+```shell
+vue add element-ui
+```
+
+当然，vue-cli 还有之前的 init 指令等很多指令，只需要 `-h` 一下就可以知道了。
+
+**当使用的是 ts 的时候，怎么写这个配置文件还需要研究一下**。
 
 ## 关于 vue 3.0 bate 我想说
 

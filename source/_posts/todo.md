@@ -20,14 +20,12 @@ categories: 其他
 * [ ] **2020.01.02**
   * [ ] ref
 * [ ] **2020.01.13**
-  * [ ] [class]()
+  * [ ] [class](/2020/01/14/class/)
     * [ ] react static （请看 class 类的内容）
     * [ ] ES6 static （请看 class 类的内容）
 * [ ] **2020.01.20**
-  * [ ] lifecycle （生命周期）
+  * [ ] [react lifecycle](/2020/01/20/react-lifecycle/)
   * [ ] sheetjs-xlsx （exel导入导出）
-* [ ] **2020.01.29**
-  * [ ] 系统学习
 * [ ] **2020.02.17**
   * [ ] [学习 promise](/2020/03/20/promise/)
   * [X] [自定义 promise](/2020/03/26/customize-promise/)
@@ -48,22 +46,8 @@ categories: 其他
   * [ ] 关于 antd 或者 element 表单的封装详细了解一下，对以后的封装会很有好处的
 * [ ] **2020.05.10**
   * [ ] 自己构建 vue，并使用 vue-loader 解析 *.vue 文件创建页面，通过 webpack 构建页面
-
-## 系统学习
-
-### 商城系统
-
-前端框架: react
-
-后台: koa
-
-前期数据模拟: mock
-
-登陆模块
-
-搜索
-
-支付（订单）流程
+* [ ] **2020.05.11**
+  * [ ] nginx 配置
 
 ### 原因
 
