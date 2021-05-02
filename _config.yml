@@ -96,5 +96,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/sheeepli/sheeepli.github.io
+  repository: git@github.com:sheeepli/sheeepBlog.git
   branch: master
