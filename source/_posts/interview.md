@@ -70,3 +70,43 @@ Box 是 CSS 布局的对象和基本单位，一个页面是由一个或多个 B
   https://juejin.cn/post/6914831351271292936?utm_source=gold_browser_extension
 
   https://juejin.cn/post/6844903806715559943
+
+## 当一个 CSS 文件很大的时候，如果还没有下载完成，js会不会执行
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>css阻塞</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      console.log('before css')
+      var startDate = new Date()
+      function h () {
+        console.log(document.querySelectorAll('h1'))
+      }
+      setTimeout(h, 0)
+    </script>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css?timestame=1" rel="stylesheet">
+  </head>
+  <body>
+    <h1>这是红色的</h1>
+    <script>
+      var endDate = new Date()
+      console.log('after css')
+      console.log('经过了' + (endDate -startDate) + 'ms')
+    </script>
+  </body>
+</html>
+```
+
+将网速调整至低速，执行以上代码，会发现能够控制台第一时间输出的是 `before css` 之后能够获取到 h1 标签，但是却没有渲染出来，也就说明 CSS 下载过程并不会阻塞 DOM 的解析，但是会阻塞 DOM 的渲染。隔了一段时间之后才能看到 `after css` 的字样，但这不能证明会阻塞，但是当我们去掉 link 标签之后，`after css` 会马上被打印出来，这样就能够证明 CSS 的下载会阻塞 js 的执行
+
+附webkit流程一张
+
+![1ydsk1wex0.png](1ydsk1wex0.png)
+
+## 关于浏览器性能优化的需要重新开一个写
+
+https://blog.csdn.net/y_programmer_ape/article/details/107307676
