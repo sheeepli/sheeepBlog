@@ -105,5 +105,5 @@ npm install hexo-deployer-git --save
 ## 关于 GitHub
 
 1. whells 仓库是专门用来存放轮子的
-2. blogCode 仓库是专门用来存放每个博客的执行文件的
-3. learnCode 仓库是用来存放书上或别人的博客抄来的代码的
+2. blogCodes 仓库是专门用来存放每个博客的执行文件的
+3. learnCodes 仓库是用来存放书上或别人的博客抄来的代码的
