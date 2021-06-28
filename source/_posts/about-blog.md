@@ -101,3 +101,9 @@ npm install hexo-deployer-git --save
 使用 `hexo generator` 生成文件
 
 然后使用 `hexo deploy -m 'commit message'` 提交
+
+## 关于 GitHub
+
+1. whells 仓库是专门用来存放轮子的
+2. blogCode 仓库是专门用来存放每个博客的执行文件的
+3. learnCode 仓库是用来存放书上或别人的博客抄来的代码的
